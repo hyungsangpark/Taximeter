@@ -11,7 +11,8 @@ import SwiftUI
 struct TaximeterApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainMeterView()
+                .preferredColorScheme(.dark)
         }
     }
 }

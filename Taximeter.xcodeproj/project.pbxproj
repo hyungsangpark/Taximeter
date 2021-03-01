@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EDD712C25EC6CF800A584BE /* ic_horse_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDD712925EC6CF600A584BE /* ic_horse_3.png */; };
+		2EDD712D25EC6CF800A584BE /* ic_horse_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDD712A25EC6CF600A584BE /* ic_horse_1.png */; };
+		2EDD712E25EC6CF800A584BE /* ic_horse_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDD712B25EC6CF700A584BE /* ic_horse_2.png */; };
 		2EEC433725EBA85F00E9A305 /* TaximeterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC433625EBA85F00E9A305 /* TaximeterApp.swift */; };
-		2EEC433925EBA85F00E9A305 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC433825EBA85F00E9A305 /* ContentView.swift */; };
+		2EEC433925EBA85F00E9A305 /* MainMeterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC433825EBA85F00E9A305 /* MainMeterView.swift */; };
 		2EEC433B25EBA86000E9A305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EEC433A25EBA86000E9A305 /* Assets.xcassets */; };
 		2EEC433E25EBA86000E9A305 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EEC433D25EBA86000E9A305 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2EDD712925EC6CF600A584BE /* ic_horse_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_horse_3.png; sourceTree = "<group>"; };
+		2EDD712A25EC6CF600A584BE /* ic_horse_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_horse_1.png; sourceTree = "<group>"; };
+		2EDD712B25EC6CF700A584BE /* ic_horse_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_horse_2.png; sourceTree = "<group>"; };
 		2EEC433325EBA85F00E9A305 /* Taximeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taximeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EEC433625EBA85F00E9A305 /* TaximeterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaximeterApp.swift; sourceTree = "<group>"; };
-		2EEC433825EBA85F00E9A305 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2EEC433825EBA85F00E9A305 /* MainMeterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMeterView.swift; sourceTree = "<group>"; };
 		2EEC433A25EBA86000E9A305 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EEC433D25EBA86000E9A305 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2EEC433F25EBA86000E9A305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,6 +39,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EDD712625EBC54900A584BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2EDD712825EC6CDF00A584BE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2EDD712A25EC6CF600A584BE /* ic_horse_1.png */,
+				2EDD712B25EC6CF700A584BE /* ic_horse_2.png */,
+				2EDD712925EC6CF600A584BE /* ic_horse_3.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		2EEC432A25EBA85F00E9A305 = {
 			isa = PBXGroup;
 			children = (
@@ -52,8 +75,10 @@
 		2EEC433525EBA85F00E9A305 /* Taximeter */ = {
 			isa = PBXGroup;
 			children = (
+				2EDD712825EC6CDF00A584BE /* Resources */,
+				2EDD712625EBC54900A584BE /* Models */,
 				2EEC433625EBA85F00E9A305 /* TaximeterApp.swift */,
-				2EEC433825EBA85F00E9A305 /* ContentView.swift */,
+				2EEC433825EBA85F00E9A305 /* MainMeterView.swift */,
 				2EEC433A25EBA86000E9A305 /* Assets.xcassets */,
 				2EEC433F25EBA86000E9A305 /* Info.plist */,
 				2EEC433C25EBA86000E9A305 /* Preview Content */,
@@ -109,6 +134,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ko,
 				Base,
 			);
 			mainGroup = 2EEC432A25EBA85F00E9A305;
@@ -126,7 +152,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDD712E25EC6CF800A584BE /* ic_horse_2.png in Resources */,
 				2EEC433E25EBA86000E9A305 /* Preview Assets.xcassets in Resources */,
+				2EDD712D25EC6CF800A584BE /* ic_horse_1.png in Resources */,
+				2EDD712C25EC6CF800A584BE /* ic_horse_3.png in Resources */,
 				2EEC433B25EBA86000E9A305 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,7 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EEC433925EBA85F00E9A305 /* ContentView.swift in Sources */,
+				2EEC433925EBA85F00E9A305 /* MainMeterView.swift in Sources */,
 				2EEC433725EBA85F00E9A305 /* TaximeterApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
