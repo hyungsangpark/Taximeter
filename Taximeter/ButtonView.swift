@@ -19,6 +19,8 @@ struct ButtonView: View {
         HStack {
             Button(action: {
                 startDrive(isOutsideCity, isLateNight)
+                UIImpactFeedbackGenerator(style: .medium)
+                    .impactOccurred()
             }) {
                 Text("운행 시작")
                     .padding([.horizontal], 15)
@@ -27,8 +29,13 @@ struct ButtonView: View {
             .frame(maxWidth: .infinity, minHeight: nil)
             .background(Color(red: 0.90, green: 0.66, blue: 0.94))
             .cornerRadius(10.0, antialiased: true)
+//            TODO: Make buttons more realistic by adding vibrations and etc.
             
-            Button(action: endDrive) {
+            Button(action: {
+                endDrive()
+                UIImpactFeedbackGenerator(style: .medium)
+                    .impactOccurred()
+            }) {
                 Text("운행 종료")
                     .padding([.horizontal], 15)
             }
@@ -37,7 +44,11 @@ struct ButtonView: View {
             .background(Color(red: 0.93, green: 0.94, blue: 0.66))
             .cornerRadius(10.0, antialiased: true)
             
-            Button(action: {isOutsideCity = !isOutsideCity}) {
+            Button(action: {
+                isOutsideCity = !isOutsideCity
+                UIImpactFeedbackGenerator(style: .medium)
+                    .impactOccurred()
+            }) {
                 Text("시외할증\n\(applicabilityText(condition: isOutsideCity))")
             }
             .padding(10)
@@ -45,7 +56,11 @@ struct ButtonView: View {
             .background(Color(red: 0.93, green: 0.75, blue: 0.60))
             .cornerRadius(10.0, antialiased: true)
             
-            Button(action: {isLateNight = !isLateNight}) {
+            Button(action: {
+                isLateNight = !isLateNight
+                UIImpactFeedbackGenerator(style: .medium)
+                    .impactOccurred()
+            }) {
                 Text("심야할증\n\(applicabilityText(condition: isLateNight))")
             }
             .padding(10)
