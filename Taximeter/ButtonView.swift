@@ -10,9 +10,13 @@ import SwiftUI
 struct ButtonView: View {
     var startDrive: () -> Void
     var endDrive: () -> Void
+    @Binding var isInService: Bool
     @Binding var surcharge: Trip.Surcharge
     private func applicabilityText(condition: Bool) -> String {
         return condition ? "적용" : "미적용"
+    }
+    private func disabledButtonOpacity(disabled: Bool) -> Double {
+        return disabled ? 0.4 : 1.0
     }
     var body: some View {
         HStack {
@@ -26,8 +30,10 @@ struct ButtonView: View {
             }
             .padding(10)
             .frame(maxWidth: .infinity, minHeight: nil)
-            .background(Color(red: 0.90, green: 0.66, blue: 0.94))
+            .background(Color(red: 0.93, green: 0.94, blue: 0.66)
+                            .opacity(disabledButtonOpacity(disabled: isInService)))
             .cornerRadius(10.0, antialiased: true)
+            .disabled(isInService)
 //            TODO: Make buttons more realistic by adding vibrations and etc.
             
             Button(action: {
@@ -42,8 +48,10 @@ struct ButtonView: View {
             }
             .padding(10)
             .frame(maxWidth: .infinity)
-            .background(Color(red: 0.93, green: 0.94, blue: 0.66))
+            .background(Color(red: 0.90, green: 0.66, blue: 0.94)
+                            .opacity(disabledButtonOpacity(disabled: !isInService)))
             .cornerRadius(10.0, antialiased: true)
+            .disabled(!isInService)
             
             Button(action: {
                 surcharge.isOutsideCity.toggle()
@@ -81,6 +89,7 @@ struct ButtonView_Previews: PreviewProvider {
         ButtonView(
             startDrive: {},
             endDrive: {},
+            isInService: .constant(false),
             surcharge: .constant(Trip.Surcharge(isOutsideCity: false, isLateNight: false))
         )
             .previewLayout(.sizeThatFits)

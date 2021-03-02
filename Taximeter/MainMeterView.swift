@@ -96,6 +96,7 @@ struct MainMeterView: View {
                     isInService = false
                     tripManager.endTrip()
                 },
+                isInService: $isInService,
                 surcharge: $tripManager.surcharge
             )
         }
