@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct ButtonView: View {
-    var startDrive: (Bool, Bool) -> Void
+    var startDrive: () -> Void
     var endDrive: () -> Void
-    @State private var isOutsideCity: Bool = false
-    @State private var isLateNight: Bool = false
+    @Binding var surcharge: Trip.Surcharge
     private func applicabilityText(condition: Bool) -> String {
         return condition ? "적용" : "미적용"
     }
     var body: some View {
         HStack {
             Button(action: {
-                startDrive(isOutsideCity, isLateNight)
+                startDrive()
                 UIImpactFeedbackGenerator(style: .medium)
                     .impactOccurred()
             }) {
@@ -33,6 +32,8 @@ struct ButtonView: View {
             
             Button(action: {
                 endDrive()
+                surcharge.isOutsideCity = false
+                surcharge.isLateNight = false
                 UIImpactFeedbackGenerator(style: .medium)
                     .impactOccurred()
             }) {
@@ -45,11 +46,11 @@ struct ButtonView: View {
             .cornerRadius(10.0, antialiased: true)
             
             Button(action: {
-                isOutsideCity = !isOutsideCity
+                surcharge.isOutsideCity.toggle()
                 UIImpactFeedbackGenerator(style: .medium)
                     .impactOccurred()
             }) {
-                Text("시외할증\n\(applicabilityText(condition: isOutsideCity))")
+                Text("시외할증\n\(applicabilityText(condition: surcharge.isOutsideCity))")
             }
             .padding(10)
             .frame(maxWidth: .infinity)
@@ -57,11 +58,11 @@ struct ButtonView: View {
             .cornerRadius(10.0, antialiased: true)
             
             Button(action: {
-                isLateNight = !isLateNight
+                surcharge.isLateNight.toggle()
                 UIImpactFeedbackGenerator(style: .medium)
                     .impactOccurred()
             }) {
-                Text("심야할증\n\(applicabilityText(condition: isLateNight))")
+                Text("심야할증\n\(applicabilityText(condition: surcharge.isLateNight))")
             }
             .padding(10)
             .frame(maxWidth: .infinity)
@@ -76,15 +77,13 @@ struct ButtonView: View {
 }
 
 struct ButtonView_Previews: PreviewProvider {
-    static func startDrive(cond1: Bool, cond2: Bool) -> Void {
-        Swift.print("Start Drive!!")
-    }
-    static func endDrive() -> Void {
-        Swift.print("End drive")
-    }
     static var previews: some View {
-        ButtonView(startDrive: startDrive(cond1:cond2:), endDrive: endDrive)
+        ButtonView(
+            startDrive: {},
+            endDrive: {},
+            surcharge: .constant(Trip.Surcharge(isOutsideCity: false, isLateNight: false))
+        )
             .previewLayout(.sizeThatFits)
-            .preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+            .preferredColorScheme(.dark)
     }
 }

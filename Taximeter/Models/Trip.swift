@@ -8,15 +8,19 @@
 import Foundation
 
 struct Trip {
-    let isOutsideCity: Bool
-    let isLateNight: Bool
+    
+    struct Surcharge {
+        var isOutsideCity: Bool
+        var isLateNight: Bool
+    }
+    
+    let surcharge: Surcharge
     let pricePerDistanceOrTime: UInt
     let startingPrice: UInt
     
-    init(isOutsideCity: Bool, isLateNight: Bool) {
-        self.isOutsideCity = isOutsideCity
-        self.isLateNight = isLateNight
-        if !self.isLateNight {
+    init(surcharge: Surcharge = Surcharge(isOutsideCity: false, isLateNight: false)) {
+        self.surcharge = surcharge
+        if !self.surcharge.isLateNight {
             self.pricePerDistanceOrTime = 100
             self.startingPrice = 3800
         } else {

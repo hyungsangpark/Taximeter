@@ -58,7 +58,8 @@ struct MainMeterView: View {
                 endDrive: {
                     isInService = false
                     tripManager.endTrip()
-                }
+                },
+                surcharge: $tripManager.surcharge
             )
         }
         .background(Color.black)
