@@ -14,22 +14,20 @@ struct MainMeterView: View {
         return self.isInService ? Color.green : Color.red
     }
     private var onTaxiText: String {
-        return self.isInService ? "운행중" : "빈차"
+        return self.isInService ? "주행" : "빈차"
     }
     var body: some View {
         VStack {
             HStack {
-                VStack {
-                    Text(onTaxiText)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        .font(.title2)
-                        .foregroundColor(onTaxiColor)
-                        .padding([.all], 7.0)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 7.5)
-                                .stroke(onTaxiColor, lineWidth: 5.0)
-                        )
-                }
+                Text(onTaxiText)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .font(.title2)
+                    .foregroundColor(onTaxiColor)
+                    .padding([.all], 7.0)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 7.5)
+                            .stroke(onTaxiColor, lineWidth: 4.0)
+                    )
                 
                 Spacer()
                 
@@ -40,7 +38,7 @@ struct MainMeterView: View {
                 }
                 .multilineTextAlignment(.trailing)
             }
-            .padding([.bottom], 20.0)
+            .padding([.vertical], 15.0)
             .padding([.horizontal], 10.0)
             
             HStack {
@@ -53,10 +51,13 @@ struct MainMeterView: View {
             Spacer()
             
             ButtonView(
-                startDrive: tripManager.startTrip(isOutsideCity:isLateNight:),
-                endDrive: { () -> Void in
-                    isInService = !isInService
-                    print("function ran!")
+                startDrive: { (isOutsideCity: Bool, isLateNight: Bool) -> Void in
+                    isInService = true
+                    tripManager.startTrip(isOutsideCity: isOutsideCity, isLateNight: isLateNight)
+                },
+                endDrive: {
+                    isInService = false
+                    tripManager.endTrip()
                 }
             )
         }
