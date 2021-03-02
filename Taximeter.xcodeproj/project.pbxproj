@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1AEB8A25ECE8860037CCFA /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1AEB8925ECE8860037CCFA /* ButtonView.swift */; };
+		2E1AEB8D25ECE9330037CCFA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1AEB8C25ECE9330037CCFA /* Trip.swift */; };
+		2E1AEB9225ECEBD30037CCFA /* TripManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1AEB9125ECEBD30037CCFA /* TripManager.swift */; };
 		2EDD712C25EC6CF800A584BE /* ic_horse_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDD712925EC6CF600A584BE /* ic_horse_3.png */; };
 		2EDD712D25EC6CF800A584BE /* ic_horse_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDD712A25EC6CF600A584BE /* ic_horse_1.png */; };
 		2EDD712E25EC6CF800A584BE /* ic_horse_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EDD712B25EC6CF700A584BE /* ic_horse_2.png */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E1AEB8925ECE8860037CCFA /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		2E1AEB8C25ECE9330037CCFA /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		2E1AEB9125ECEBD30037CCFA /* TripManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripManager.swift; sourceTree = "<group>"; };
 		2EDD712925EC6CF600A584BE /* ic_horse_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_horse_3.png; sourceTree = "<group>"; };
 		2EDD712A25EC6CF600A584BE /* ic_horse_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_horse_1.png; sourceTree = "<group>"; };
 		2EDD712B25EC6CF700A584BE /* ic_horse_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_horse_2.png; sourceTree = "<group>"; };
@@ -39,9 +45,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E1AEB9825EDD2F20037CCFA /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2E1AEB9125ECEBD30037CCFA /* TripManager.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		2EDD712625EBC54900A584BE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2E1AEB8C25ECE9330037CCFA /* Trip.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -77,8 +92,10 @@
 			children = (
 				2EDD712825EC6CDF00A584BE /* Resources */,
 				2EDD712625EBC54900A584BE /* Models */,
+				2E1AEB9825EDD2F20037CCFA /* ViewModels */,
 				2EEC433625EBA85F00E9A305 /* TaximeterApp.swift */,
 				2EEC433825EBA85F00E9A305 /* MainMeterView.swift */,
+				2E1AEB8925ECE8860037CCFA /* ButtonView.swift */,
 				2EEC433A25EBA86000E9A305 /* Assets.xcassets */,
 				2EEC433F25EBA86000E9A305 /* Info.plist */,
 				2EEC433C25EBA86000E9A305 /* Preview Content */,
@@ -167,8 +184,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E1AEB9225ECEBD30037CCFA /* TripManager.swift in Sources */,
+				2E1AEB8D25ECE9330037CCFA /* Trip.swift in Sources */,
 				2EEC433925EBA85F00E9A305 /* MainMeterView.swift in Sources */,
 				2EEC433725EBA85F00E9A305 /* TaximeterApp.swift in Sources */,
+				2E1AEB8A25ECE8860037CCFA /* ButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
