@@ -10,6 +10,7 @@ import SwiftUI
 struct MainMeterView: View {
     @StateObject private var tripManager: TripManager = TripManager()
     @State private var isInService: Bool = false
+    @State private var showNotYetImplementedAlert: Bool = false
     private var onTaxiColor: Color {
         return self.isInService ? Color.green : Color.red
     }
@@ -32,9 +33,21 @@ struct MainMeterView: View {
                 Spacer()
                 
                 VStack {
-                    Text("\(String(format: "%.1f", String(tripManager.speed))) km/h")
-                        .font(.headline)
-                    
+                    Button(action: {
+                        showNotYetImplementedAlert = true
+                    }) {
+                        Image(systemName: "gear")
+                            .antialiased(true)
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                    }
+                    .alert(isPresented: $showNotYetImplementedAlert) {
+                        Alert(
+                            title: Text("Not implemented yet."),
+                            message: Text("System preferences has yet been implemented.\nIt will soon be implemented."),
+                            dismissButton: .default(Text("Okay"))
+                        )
+                    }
                 }
                 .multilineTextAlignment(.trailing)
             }
