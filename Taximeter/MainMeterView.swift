@@ -64,9 +64,9 @@ struct MainMeterView: View {
             Spacer()
             
             ButtonView(
-                startDrive: { (isOutsideCity: Bool, isLateNight: Bool) -> Void in
+                startDrive: {
                     isInService = true
-                    tripManager.startTrip(isOutsideCity: isOutsideCity, isLateNight: isLateNight)
+                    tripManager.startTrip()
                 },
                 endDrive: {
                     isInService = false
