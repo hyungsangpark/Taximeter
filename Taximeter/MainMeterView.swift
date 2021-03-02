@@ -21,7 +21,7 @@ struct MainMeterView: View {
         VStack {
             HStack {
                 Text(onTaxiText)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .fontWeight(.bold)
                     .font(.title2)
                     .foregroundColor(onTaxiColor)
                     .padding([.all], 7.0)
@@ -29,6 +29,30 @@ struct MainMeterView: View {
                         RoundedRectangle(cornerRadius: 7.5)
                             .stroke(onTaxiColor, lineWidth: 4.0)
                     )
+                if tripManager.surcharge.isLateNight {
+                    Text("심야")
+                        .fontWeight(.bold)
+                        .font(.title3)
+                        .foregroundColor(.blue)
+                        .padding([.all], 5.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.blue, lineWidth: 3.0)
+                        )
+                        .padding([.leading], 5.0)
+                }
+                if tripManager.surcharge.isOutsideCity {
+                    Text("시외")
+                        .fontWeight(.bold)
+                        .font(.title3)
+                        .foregroundColor(.orange)
+                        .padding([.all], 5.0)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.orange, lineWidth: 3.0)
+                        )
+                        .padding([.leading], 5.0)
+                }
                 
                 Spacer()
                 
@@ -57,9 +81,9 @@ struct MainMeterView: View {
             HStack {
                 Spacer()
                 Text("\(String(tripManager.price)) 원")
-                    .font(.custom("monospaced", size: 60.0))
+                    .font(.system(size: 60.0))
             }
-            .padding([.horizontal], 5.0)
+            .padding([.horizontal], 10.0)
             
             Spacer()
             
