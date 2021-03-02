@@ -62,7 +62,7 @@ struct ButtonView: View {
             }
             .padding(10)
             .frame(maxWidth: .infinity)
-            .background(Color(red: 0.93, green: 0.75, blue: 0.60))
+            .background(Color(red: 0.60, green: 0.82, blue: 0.93))
             .cornerRadius(10.0, antialiased: true)
             
             Button(action: {
@@ -74,7 +74,7 @@ struct ButtonView: View {
             }
             .padding(10)
             .frame(maxWidth: .infinity)
-            .background(Color(red: 0.60, green: 0.82, blue: 0.93))
+            .background(Color(red: 0.93, green: 0.75, blue: 0.60))
             .cornerRadius(10.0, antialiased: true)
         }
         .multilineTextAlignment(.center)

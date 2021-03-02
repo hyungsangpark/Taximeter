@@ -29,8 +29,8 @@ struct MainMeterView: View {
                         RoundedRectangle(cornerRadius: 7.5)
                             .stroke(onTaxiColor, lineWidth: 4.0)
                     )
-                if tripManager.surcharge.isLateNight {
-                    Text("심야")
+                if tripManager.surcharge.isOutsideCity {
+                    Text("시외")
                         .fontWeight(.bold)
                         .font(.title3)
                         .foregroundColor(.blue)
@@ -41,8 +41,8 @@ struct MainMeterView: View {
                         )
                         .padding([.leading], 5.0)
                 }
-                if tripManager.surcharge.isOutsideCity {
-                    Text("시외")
+                if tripManager.surcharge.isLateNight {
+                    Text("심야")
                         .fontWeight(.bold)
                         .font(.title3)
                         .foregroundColor(.orange)
