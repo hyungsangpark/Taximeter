@@ -67,6 +67,7 @@ struct ButtonView: View {
             
             Button(action: {
                 surcharge.isLateNight.toggle()
+                
                 UIImpactFeedbackGenerator(style: .medium)
                     .impactOccurred()
             }) {

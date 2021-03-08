@@ -17,6 +17,8 @@ struct Trip {
     let surcharge: Surcharge
     let pricePerDistanceOrTime: UInt
     let startingPrice: UInt
+    let unitDistance: UInt = 132
+    let unitTime: UInt = 31
     
     init(surcharge: Surcharge = Surcharge(isOutsideCity: false, isLateNight: false)) {
         self.surcharge = surcharge

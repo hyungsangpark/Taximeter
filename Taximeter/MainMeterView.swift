@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainMeterView: View {
     @StateObject private var tripManager: TripManager = TripManager()
+    @StateObject private var countdownManager: CountdownManager = CountdownManager()
     @State private var isInService: Bool = false
     @State private var showNotYetImplementedAlert: Bool = false
     private var onTaxiColor: Color {
@@ -68,8 +69,7 @@ struct MainMeterView: View {
                     .alert(isPresented: $showNotYetImplementedAlert) {
                         Alert(
                             title: Text("Not implemented yet."),
-                            message: Text("System preferences has yet been implemented.\nIt will soon be implemented."),
-                            dismissButton: .default(Text("Okay"))
+                            message: Text("System preferences has yet been implemented.\nIt will soon be implemented.")
                         )
                     }
                 }
@@ -80,8 +80,11 @@ struct MainMeterView: View {
             
             HStack {
                 Spacer()
-                Text("\(String(tripManager.price)) 원")
-                    .font(.system(size: 60.0))
+                VStack(alignment: .trailing) {
+                    Text("\(String(tripManager.price))원")
+                        .font(.system(size: 60.0))
+                    CountdownView(isInService: $isInService, tripManager: tripManager, countdownManager: countdownManager)
+                }
             }
             .padding([.horizontal], 10.0)
             
@@ -94,6 +97,7 @@ struct MainMeterView: View {
                 },
                 endDrive: {
                     isInService = false
+                    countdownManager.clear()
                     tripManager.endTrip()
                 },
                 isInService: $isInService,
