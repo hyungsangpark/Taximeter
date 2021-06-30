@@ -12,10 +12,10 @@ class TripManager: ObservableObject {
     @Published var isLateNight: Bool = false
     @Published var price: UInt = 0
     
-    var pricePerDistanceOrTime: UInt {
+    private var pricePerDistanceOrTime: UInt {
         return !isLateNight ? 100 : 120;
     }
-    var startingPrice: UInt {
+    private var startingPrice: UInt {
         return !isLateNight ? 3800 : 4600;
     }
     var finalPrice: Int {

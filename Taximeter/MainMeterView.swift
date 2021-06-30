@@ -58,23 +58,20 @@ struct MainMeterView: View {
                 
                 Spacer()
                 
-                VStack {
-                    Button(action: {
-                        showNotYetImplementedAlert = true
-                    }) {
-                        Image(systemName: "gear")
-                            .antialiased(true)
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
-                    }
-                    .alert(isPresented: $showNotYetImplementedAlert) {
-                        Alert(
-                            title: Text("Not implemented yet."),
-                            message: Text("System preferences has yet been implemented.\nIt will soon be implemented.")
-                        )
-                    }
+                Button(action: {
+                    showNotYetImplementedAlert = true
+                }) {
+                    Image(systemName: "gear")
+                        .antialiased(true)
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
                 }
-                .multilineTextAlignment(.trailing)
+                .alert(isPresented: $showNotYetImplementedAlert) {
+                    Alert(
+                        title: Text("Not implemented yet."),
+                        message: Text("System preferences has yet been implemented.\nIt will soon be implemented.")
+                    )
+                }
             }
             .padding([.vertical], 15.0)
             .padding([.horizontal], 10.0)
