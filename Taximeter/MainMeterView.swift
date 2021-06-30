@@ -83,14 +83,14 @@ struct MainMeterView: View {
                 VStack(alignment: .trailing) {
                     Text("\(String(tripManager.price))원")
                         .font(.system(size: 60.0))
-                    CountdownView(isInService: $isInService, tripManager: tripManager, countdownManager: countdownManager)
+                    CountdownView(isInService: $isInService, tripManager: tripManager, countdownManager: countdownManager, locationManager: locationManager)
                 }
             }
             .padding([.horizontal], 10.0)
             
             Spacer()
             
-            ButtonView(
+            ButtonRowView(
                 startDrive: {
                     isInService = true
                     tripManager.startTrip()
