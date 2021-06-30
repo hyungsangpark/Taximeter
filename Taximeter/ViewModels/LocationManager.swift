@@ -9,11 +9,8 @@ import Foundation
 import CoreLocation
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    
     @Published var authorizationStatus: CLAuthorizationStatus
     @Published var speed: Double = 0.0
-//    var lastLocation: CLLocation?
-//    @Published var travelledDistance
     
     private let locationManager: CLLocationManager
     
@@ -27,14 +24,6 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
     }
-    
-//    func requestPermission() {
-//        locationManager.requestWhenInUseAuthorization()
-//    }
-//
-//    func distanceTravelledFromLastLocation() -> Int {
-//        if lastLocation ==
-//    }
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         authorizationStatus = manager.authorizationStatus

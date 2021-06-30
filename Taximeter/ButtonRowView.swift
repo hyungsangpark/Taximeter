@@ -10,14 +10,15 @@ import SwiftUI
 struct ButtonRowView: View {
     var startDrive: () -> Void
     var endDrive: () -> Void
+    
     @Binding var isInService: Bool
-    @Binding var surcharge: Trip.Surcharge
-    private func applicabilityText(condition: Bool) -> String {
-        return condition ? "적용" : "미적용"
-    }
+    @Binding var isOutsideCity: Bool
+    @Binding var isLateNight: Bool
+    
     private func disabledButtonOpacity(disabled: Bool) -> Double {
         return disabled ? 0.4 : 1.0
     }
+    
     var body: some View {
         HStack {
             MeterButton(
@@ -36,8 +37,8 @@ struct ButtonRowView: View {
             MeterButton(
                 action: {
                     endDrive()
-                    surcharge.isOutsideCity = false
-                    surcharge.isLateNight = false
+                    isOutsideCity = false
+                    isLateNight = false
                     UIImpactFeedbackGenerator(style: .medium)
                         .impactOccurred()
                 },
@@ -50,24 +51,24 @@ struct ButtonRowView: View {
             
             MeterButton(
                 action: {
-                    surcharge.isOutsideCity.toggle()
+                    isOutsideCity.toggle()
                     UIImpactFeedbackGenerator(style: .medium)
                         .impactOccurred()
                 },
-                topText: "시외할증",
-                bottomText: applicabilityText(condition: surcharge.isOutsideCity),
+                topText: "시외",
+                bottomText: "할증",
                 backgroundColor: Color(red: 0.60, green: 0.82, blue: 0.93)
             )
 
             MeterButton(
                 action: {
-                    surcharge.isLateNight.toggle()
+                    isLateNight.toggle()
                     
                     UIImpactFeedbackGenerator(style: .medium)
                         .impactOccurred()
                 },
-                topText: "심야할증",
-                bottomText: applicabilityText(condition: surcharge.isLateNight),
+                topText: "심야",
+                bottomText: "할증",
                 backgroundColor: Color(red: 0.93, green: 0.75, blue: 0.60)
             )
         }
@@ -84,7 +85,8 @@ struct ButtonView_Previews: PreviewProvider {
             startDrive: {},
             endDrive: {},
             isInService: .constant(false),
-            surcharge: .constant(Trip.Surcharge(isOutsideCity: false, isLateNight: false))
+            isOutsideCity: .constant(false),
+            isLateNight: .constant(false)
         )
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)

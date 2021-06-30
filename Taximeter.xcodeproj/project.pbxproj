@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2E1AEB8A25ECE8860037CCFA /* ButtonRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1AEB8925ECE8860037CCFA /* ButtonRowView.swift */; };
-		2E1AEB8D25ECE9330037CCFA /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1AEB8C25ECE9330037CCFA /* Trip.swift */; };
 		2E1AEB9225ECEBD30037CCFA /* TripManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1AEB9125ECEBD30037CCFA /* TripManager.swift */; };
-		2E9748C725EE5F8700CD9795 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9748C625EE5F8700CD9795 /* CountdownView.swift */; };
 		2E9748CB25EF5FF500CD9795 /* CountdownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9748CA25EF5FF500CD9795 /* CountdownManager.swift */; };
 		2E9748D025F654D000CD9795 /* MeterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9748CF25F654CF00CD9795 /* MeterButton.swift */; };
 		2EA39783268ADF500068260E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA39782268ADF500068260E /* LocationManager.swift */; };
@@ -25,9 +23,7 @@
 
 /* Begin PBXFileReference section */
 		2E1AEB8925ECE8860037CCFA /* ButtonRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRowView.swift; sourceTree = "<group>"; };
-		2E1AEB8C25ECE9330037CCFA /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		2E1AEB9125ECEBD30037CCFA /* TripManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripManager.swift; sourceTree = "<group>"; };
-		2E9748C625EE5F8700CD9795 /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		2E9748CA25EF5FF500CD9795 /* CountdownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CountdownManager.swift; path = Taximeter/CountdownManager.swift; sourceTree = SOURCE_ROOT; };
 		2E9748CF25F654CF00CD9795 /* MeterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterButton.swift; sourceTree = "<group>"; };
 		2EA39782268ADF500068260E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -63,14 +59,6 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		2EDD712625EBC54900A584BE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				2E1AEB8C25ECE9330037CCFA /* Trip.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		2EDD712825EC6CDF00A584BE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,11 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				2EDD712825EC6CDF00A584BE /* Resources */,
-				2EDD712625EBC54900A584BE /* Models */,
 				2E1AEB9825EDD2F20037CCFA /* ViewModels */,
 				2EEC433625EBA85F00E9A305 /* TaximeterApp.swift */,
 				2EEC433825EBA85F00E9A305 /* MainMeterView.swift */,
-				2E9748C625EE5F8700CD9795 /* CountdownView.swift */,
 				2E9748CF25F654CF00CD9795 /* MeterButton.swift */,
 				2E1AEB8925ECE8860037CCFA /* ButtonRowView.swift */,
 				2EEC433A25EBA86000E9A305 /* Assets.xcassets */,
@@ -200,9 +186,7 @@
 				2E9748D025F654D000CD9795 /* MeterButton.swift in Sources */,
 				2EA39783268ADF500068260E /* LocationManager.swift in Sources */,
 				2E1AEB9225ECEBD30037CCFA /* TripManager.swift in Sources */,
-				2E1AEB8D25ECE9330037CCFA /* Trip.swift in Sources */,
 				2EEC433925EBA85F00E9A305 /* MainMeterView.swift in Sources */,
-				2E9748C725EE5F8700CD9795 /* CountdownView.swift in Sources */,
 				2EEC433725EBA85F00E9A305 /* TaximeterApp.swift in Sources */,
 				2E1AEB8A25ECE8860037CCFA /* ButtonRowView.swift in Sources */,
 			);

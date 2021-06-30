@@ -31,7 +31,7 @@ struct MainMeterView: View {
                         RoundedRectangle(cornerRadius: 7.5)
                             .stroke(onTaxiColor, lineWidth: 4.0)
                     )
-                if tripManager.surcharge.isOutsideCity {
+                if tripManager.isOutsideCity {
                     Text("시외")
                         .fontWeight(.bold)
                         .font(.title3)
@@ -43,7 +43,7 @@ struct MainMeterView: View {
                         )
                         .padding([.leading], 5.0)
                 }
-                if tripManager.surcharge.isLateNight {
+                if tripManager.isLateNight {
                     Text("심야")
                         .fontWeight(.bold)
                         .font(.title3)
@@ -84,7 +84,13 @@ struct MainMeterView: View {
                 VStack(alignment: .trailing) {
                     Text("\(String(tripManager.price))원")
                         .font(.system(size: 60.0))
-                    CountdownView(isInService: $isInService, tripManager: tripManager, countdownManager: countdownManager, locationManager: locationManager)
+                    Text("\(countdownManager.countdown)")
+                        .font(.largeTitle)
+                        .onReceive(countdownManager.timer, perform: { _ in
+                            if isInService {
+                                countdownManager.decrementCountdown(tripManager: tripManager, currentSpeed: locationManager.speed)
+                            }
+                        })
                 }
             }
             .padding([.horizontal], 10.0)
@@ -108,7 +114,8 @@ struct MainMeterView: View {
                     tripManager.endTrip()
                 },
                 isInService: $isInService,
-                surcharge: $tripManager.surcharge
+                isOutsideCity: $tripManager.isOutsideCity,
+                isLateNight: $tripManager.isLateNight
             )
         }
         .background(Color.black)
