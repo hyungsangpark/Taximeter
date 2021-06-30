@@ -11,14 +11,16 @@ struct CountdownView: View {
     @Binding var isInService: Bool
     @ObservedObject var tripManager: TripManager
     @ObservedObject var countdownManager: CountdownManager
+    @ObservedObject var locationManager: LocationManager
     
     var body: some View {
         Text("\(countdownManager.countdown)")
             .font(.largeTitle)
             .onReceive(countdownManager.timer, perform: { _ in
                 if isInService {
-                    let currentSpeed = tripManager.speed < 15.33 ? 15.33 : tripManager.speed
-                    let decrementValue = currentSpeed / 7.2
+                    let currentSpeed = locationManager.speed < 4.2583 ? 4.2583 : locationManager.speed
+//                    Decrement value = current speed * countdown interval period
+                    let decrementValue = currentSpeed * 0.5
                     let remainingDecrementValue = Int(countdownManager.countdown) - Int(decrementValue)
                     let leftover = decrementValue.truncatingRemainder(dividingBy: 1)
                     
@@ -43,8 +45,9 @@ struct CountdownView: View {
 struct CountdownView_Previews: PreviewProvider {
     static let tripManager: TripManager = TripManager()
     static let countdownManager: CountdownManager = CountdownManager()
+    static let locationManager: LocationManager = LocationManager()
     static var previews: some View {
-        CountdownView(isInService: .constant(true), tripManager: tripManager, countdownManager: countdownManager)
+        CountdownView(isInService: .constant(true), tripManager: tripManager, countdownManager: countdownManager, locationManager: locationManager)
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.dark)
     }

@@ -10,6 +10,7 @@ import SwiftUI
 struct MainMeterView: View {
     @StateObject private var tripManager: TripManager = TripManager()
     @StateObject private var countdownManager: CountdownManager = CountdownManager()
+    @StateObject private var locationManager: LocationManager = LocationManager()
     @State private var isInService: Bool = false
     @State private var showNotYetImplementedAlert: Bool = false
     private var onTaxiColor: Color {
@@ -87,6 +88,12 @@ struct MainMeterView: View {
                 }
             }
             .padding([.horizontal], 10.0)
+            
+            // =================================
+            Spacer()
+            // Line below used for debugging
+            Text("Speed (m/s): \(String(locationManager.speed))")
+            // =================================
             
             Spacer()
             
