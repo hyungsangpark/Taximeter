@@ -28,9 +28,9 @@ struct MeterButton: View {
                 Text(self.topText)
                 Text(self.bottomText)
             }
+            .frame(maxWidth: .infinity, minHeight: nil)
         }
         .padding(10)
-        .frame(maxWidth: .infinity, minHeight: nil)
         .background(self.backgroundColor)
         .cornerRadius(10.0, antialiased: true)
         .disabled(isDisabled)
