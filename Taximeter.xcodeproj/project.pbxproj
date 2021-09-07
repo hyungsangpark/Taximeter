@@ -59,6 +59,16 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		2EC610F626E6FA8900AE8808 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC433825EBA85F00E9A305 /* MainMeterView.swift */,
+				2E9748CF25F654CF00CD9795 /* MeterButton.swift */,
+				2E1AEB8925ECE8860037CCFA /* ButtonRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2EDD712825EC6CDF00A584BE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,12 +98,10 @@
 		2EEC433525EBA85F00E9A305 /* Taximeter */ = {
 			isa = PBXGroup;
 			children = (
+				2EC610F626E6FA8900AE8808 /* Views */,
 				2EDD712825EC6CDF00A584BE /* Resources */,
 				2E1AEB9825EDD2F20037CCFA /* ViewModels */,
 				2EEC433625EBA85F00E9A305 /* TaximeterApp.swift */,
-				2EEC433825EBA85F00E9A305 /* MainMeterView.swift */,
-				2E9748CF25F654CF00CD9795 /* MeterButton.swift */,
-				2E1AEB8925ECE8860037CCFA /* ButtonRowView.swift */,
 				2EEC433A25EBA86000E9A305 /* Assets.xcassets */,
 				2EEC433F25EBA86000E9A305 /* Info.plist */,
 				2EEC433C25EBA86000E9A305 /* Preview Content */,

@@ -12,6 +12,7 @@ struct MainMeterView: View {
     @StateObject private var countdownManager: CountdownManager = CountdownManager()
     @StateObject private var locationManager: LocationManager = LocationManager()
     @State private var isInService: Bool = false
+    @State private var isFarePresented: Bool = false
     @State private var showNotYetImplementedAlert: Bool = false
     private var onTaxiColor: Color {
         return self.isInService ? Color.green : Color.red
@@ -85,12 +86,17 @@ struct MainMeterView: View {
                         .font(.largeTitle)
                         .onReceive(countdownManager.timer, perform: { _ in
                             if isInService {
-                                countdownManager.decrementCountdown(tripManager: tripManager, currentSpeed: locationManager.speed)
+                                countdownManager.decrementCountdown(incrementPriceOn: tripManager, currentSpeed: locationManager.speed)
                             }
                         })
                 }
             }
             .padding([.horizontal], 10.0)
+            
+//            Image("horse1")
+//                .resizable()
+//                .antialiased(true)
+//                .frame(maxWidth: 154, maxHeight: 100)
             
             // =================================
             Spacer()
@@ -107,8 +113,8 @@ struct MainMeterView: View {
                 },
                 endDrive: {
                     isInService = false
+                    isFarePresented = true
                     countdownManager.clear()
-                    tripManager.endTrip()
                 },
                 isInService: $isInService,
                 isOutsideCity: $tripManager.isOutsideCity,
@@ -117,6 +123,26 @@ struct MainMeterView: View {
         }
         .background(Color.black)
         .padding([.all], 5.0)
+        .sheet(isPresented: $isFarePresented, onDismiss: {
+            tripManager.endTrip()
+        }) {
+            NavigationView {
+                VStack {
+                    Text("Total Fare: $\(tripManager.finalPrice)")
+                        .font(.title)
+                }
+                .navigationBarItems(leading: Button("Dismiss") {
+                    isFarePresented = false
+                }
+                .foregroundColor(.white),
+                trailing: Button("Add") {
+                    isFarePresented = false
+                }
+                .foregroundColor(.white))
+                .navigationTitle("Fare")
+            }
+            .preferredColorScheme(.dark)
+        }
     }
 }
 

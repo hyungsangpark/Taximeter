@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ButtonRowView: View {
-    var startDrive: () -> Void
-    var endDrive: () -> Void
+    let startDrive: () -> Void
+    let endDrive: () -> Void
     
     @Binding var isInService: Bool
     @Binding var isOutsideCity: Bool
     @Binding var isLateNight: Bool
     
-    private func disabledButtonOpacity(disabled: Bool) -> Double {
-        return disabled ? 0.4 : 1.0
+    private func disabledButtonOpacity(isDisabled: Bool) -> Double {
+        return isDisabled ? 0.4 : 1.0
     }
     
     var body: some View {
@@ -30,7 +30,7 @@ struct ButtonRowView: View {
                 topText: "운행",
                 bottomText: "시작",
                 backgroundColor: Color(red: 0.93, green: 0.94, blue: 0.66)
-                    .opacity(disabledButtonOpacity(disabled: isInService)),
+                    .opacity(disabledButtonOpacity(isDisabled: isInService)),
                 isDisabled: isInService
             )
             
@@ -45,7 +45,7 @@ struct ButtonRowView: View {
                 topText: "운행",
                 bottomText: "종료",
                 backgroundColor: Color(red: 0.90, green: 0.66, blue: 0.94)
-                    .opacity(disabledButtonOpacity(disabled: !isInService)),
+                    .opacity(disabledButtonOpacity(isDisabled: !isInService)),
                 isDisabled: !isInService
             )
             

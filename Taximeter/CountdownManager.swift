@@ -15,7 +15,7 @@ class CountdownManager: ObservableObject {
         
     var timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     
-    func decrementCountdown(tripManager: TripManager, currentSpeed speed: Double) -> Void {
+    func decrementCountdown(incrementPriceOn tripManager: TripManager, currentSpeed speed: Double) -> Void {
         let currentSpeed = speed < 4.2583 ? 4.2583 : speed
         // Decrement value = current speed * countdown interval period
         let decrementValue = currentSpeed * 0.5
